@@ -19,7 +19,7 @@ var getPlatformIcons = function () {
     platforms.push({
         name: 'ios',
         isAdded: true,
-        iconsPath: 'res/icons/ios/',
+        iconsPath: 'res/icon/ios/',
         icons: [
             // Default icon (avoid Apple submit error ITMS-90032)
             { name: "../../../icon.png", size: 57 },
@@ -51,7 +51,8 @@ var getPlatformIcons = function () {
             { name: 'icon-50.png', size: 50 },
             { name: 'icon-50-2x.png', size: 100 },
             // iPad Pro
-            { name: 'icon-83.5-2x.png', size: 167 }
+            { name: 'icon-83.5-2x.png', size: 167 },
+            { name: 'icon-1024.png', size: 1024 }
             // Other sizes -->
             // { name:'icon-50-3x.png', size:150 },
             // { name:'icon-57-3x.png', size:171 },
@@ -73,7 +74,7 @@ var getPlatformIcons = function () {
     //ok
     platforms.push({
         name: 'android',
-        iconsPath: 'res/icons/android/',
+        iconsPath: 'res/icon/android/',
         isAdded: true,
         icons: [
             { name: 'icon-36-ldpi.png', size: 36, density: 'ldpi' },
@@ -88,7 +89,7 @@ var getPlatformIcons = function () {
     //ok
     platforms.push({
         name: 'wp8',
-        iconsPath: 'res/icons/wp8/',
+        iconsPath: 'res/icon/wp8/',
         isAdded: true,
         icons: [
             { name: 'ApplicationIcon.png', size: 99 },
@@ -99,7 +100,7 @@ var getPlatformIcons = function () {
     //ok
     platforms.push({
         name: 'windows',
-        iconsPath: 'res/icons/windows/',
+        iconsPath: 'res/icon/windows/',
         isAdded: true,
         icons: [
             { name: 'Square150x150Logo.scale-100.png', size: 150 },
@@ -150,18 +151,25 @@ var getPlatformSplashs = function () {
         isAdded: true,
         splashPath: 'res/screens/ios/',
         splash: [
-            { name: "screen-iphone-portrait.png", width: 320, height: 480 },           // iPhone
-            { name: "screen-iphone-portrait-2x.png", width: 640, height: 960 },        // iPhone Retina
-            { name: "screen-ipad-portrait.png", width: 768, height: 1024 },            // iPad
-            { name: "screen-ipad-portrait-2x.png", width: 1536, height: 2048 },        // iPad Retina
-            { name: "screen-ipad-landscape.png", width: 1024, height: 768 },           // iPad
-            { name: "screen-ipad-landscape-2x.png", width: 2048, height: 1536 },       // iPad Retina
-            { name: 'screen-ipad-landscape-ipadpro.png', width: 2732, height: 2048 }, // iPad Pro
-            { name: 'screen-ipad-portrait-ipadpro.png', width: 2048, height: 2732 }, // iPad Pro
-            { name: "screen-iphone-568h-2x.png", width: 640, height: 1136 },           // iPhone 5 Retina
-            { name: "screen-iphone-portrait-667h.png", width: 750, height: 1334 },     // iPhone 6
-            { name: "screen-iphone-portrait-736h.png", width: 1242, height: 2208 },    // iPhone 6 Plus
-            { name: "screen-iphone-landscape-736h.png", width: 2208, height: 1242 }    // iPhone 6 Plus
+          { name: "screen-iphone-portrait.png", width: 320, height: 480 },           // iPhone
+          { name: "screen-iphone-portrait-2x.png", width: 640, height: 960 },        // iPhone Retina
+          { name: "screen-iphone-portrait-568h-2x.png", width: 640, height: 1136 },           // iPhone 5 Retina
+          { name: "screen-iphone-portrait-667h.png", width: 750, height: 1334 },     // iPhone 6
+          { name: "screen-iphone-portrait-736h.png", width: 1242, height: 2208 },    // iPhone 6 Plus
+
+          { name: "screen-iphone-landscape.png", width: 480, height: 320 },   // iPhone
+          { name: "screen-iphone-landscape-2x.png", width: 960, height: 640 },   // iPhone Retina
+          { name: "screen-iphone-landscape-568h-2x.png", width: 1136, height: 640 },   // iPhone 5 Retina
+          { name: "screen-iphone-landscape-667h.png", width: 1334, height: 750 },    // iPhone 6
+          { name: "screen-iphone-landscape-736h.png", width: 2208, height: 1242 },    // iPhone 6 Plus
+
+          { name: "screen-ipad-portrait.png", width: 768, height: 1024 },            // iPad
+          { name: "screen-ipad-portrait-2x.png", width: 1536, height: 2048 },        // iPad Retina
+          { name: 'screen-ipad-portrait-ipadpro.png', width: 2048, height: 2732 },    // iPad Pro
+
+          { name: "screen-ipad-landscape.png", width: 1024, height: 768 },           // iPad
+          { name: "screen-ipad-landscape-2x.png", width: 2048, height: 1536 },       // iPad Retina
+          { name: 'screen-ipad-landscape-ipadpro.png', width: 2732, height: 2048 } // iPad Pro
         ]
     });
 
@@ -269,7 +277,7 @@ var generateIcon = function (platform, icon) {
             nodeFs.mkdirSync(filedirName, '0777', true);
         }
         var srcPath = settings.ICON_FILE;
-        var platformIconPath = path.join(path.dirname(srcPath), platform.name, path.basename(srcPath));
+        var platformIconPath = path.join(path.dirname(srcPath), platform.name + "-" + path.basename(srcPath));
         if (fs.existsSync(platformIconPath)) {
             srcPath = platformIconPath;
         }
@@ -377,7 +385,7 @@ var generateSplash = function (platform, splash) {
             nodeFs.mkdirSync(filedirName, '0777', true);
         }
         var srcPath = settings.SPLASH_FILE;
-        var platformIconPath = path.join(path.dirname(srcPath), platform.name, path.basename(srcPath));
+        var platformIconPath = path.join(path.dirname(srcPath), platform.name + "-" + path.basename(srcPath));
         if (fs.existsSync(platformIconPath)) {
             srcPath = platformIconPath;
         }
