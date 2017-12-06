@@ -149,7 +149,7 @@ var getPlatformSplashs = function () {
     platforms.push({
         name: 'ios',
         isAdded: true,
-        splashPath: 'res/screens/ios/',
+        splashPath: 'res/screen/ios/',
         splash: [
           { name: "screen-iphone-portrait.png", width: 320, height: 480 },           // iPhone
           { name: "screen-iphone-portrait-2x.png", width: 640, height: 960 },        // iPhone Retina
@@ -177,7 +177,7 @@ var getPlatformSplashs = function () {
     platforms.push({
         name: 'android',
         isAdded: true,
-        splashPath: 'res/screens/android/',
+        splashPath: 'res/screen/android/',
         splash: [
             { name: "screen-ldpi-portrait.png", width: 320, height: 426, density: "port-ldpi" }, // 200x320
             { name: "screen-ldpi-landscape.png", width: 426, height: 320, density: "land-ldpi" }, // 320x200
@@ -199,7 +199,7 @@ var getPlatformSplashs = function () {
     platforms.push({
         name: 'wp8',
         isAdded: true,
-        splashPath: 'res/screens/wp8/',
+        splashPath: 'res/screen/wp8/',
         splash: [
             { width: 768, height: 1280, name: "SplashScreenImage.jpg" },
             { width: 480, height: 800, name: "SplashScreenImage.screen-WVGA.jpg" },
@@ -212,7 +212,7 @@ var getPlatformSplashs = function () {
     platforms.push({
         name: 'windows',
         isAdded: true,
-        splashPath: 'res/screens/windows/',
+        splashPath: 'res/screen/windows/',
         splash: [
             { width: 620, height: 300, name: "SplashScreen.scale-100.png" },
             { width: 1152, height: 1920, name: "SplashScreen.scale-240.png" },
@@ -223,7 +223,7 @@ var getPlatformSplashs = function () {
     platforms.push({
         name: 'store',
         isAdded: true,
-        splashPath: 'store/screens/',
+        splashPath: 'store/screen/',
         splash: [
             { path: './android/', name: 'cover-store.png', width: 1024, height: 500 },
         ]
